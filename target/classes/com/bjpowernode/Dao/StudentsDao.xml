@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--"http://mybatis.org/dtd/mybatis-3-mapper.dtd 指定约束文件，限制检查这个文件的标签属性必须符合mybatis的要求-->
+<!--namespace 要求是对应接口的全限定名称-->
+<mapper namespace="com.bjpowernode.Dao.StudentsDao">
+    <!--
+    “select id=“””
+    <select>标签是用来书写mybatis要执行的sql语句，标签的id属性是唯一的，mybatis是通过标签的id值来找到需要的SQL语句
+    所以标签id必须要和Dao接口操作数据库的方法名一致，简而言之，select标签对应select方法名，update标签对应update方法名
+    "resultType="""
+    resultType属性代表，select语句执行后返回的java对象类型，即我们创建的实体类,要写类文件根目录的包名
+   -->
+    <select id="selectStudents" resultType="com.bjpowernode.domain.Students">
+        select * from students
+    </select>
+    <insert id="insertStudent">
+        insert into students (id,name,email,age) values (#{id},#{name},#{email},#{age})
+    </insert>
+    <update id="updateStudent">
+        update students set name = #{name} where id=#{id}
+    </update>
+    <delete id="deleteStudent">
+        delete from students where id = #{id}
+    </delete>
+    <select id="selectById" resultType="com.bjpowernode.domain.Students">
+        select*from students where id=#{id}
+    </select>
+</mapper>
