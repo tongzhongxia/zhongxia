@@ -27,4 +27,10 @@
     <select id="selectById" resultType="com.bjpowernode.domain.Students">
         select*from students where id=#{id}
     </select>
+    <select id="selectDouble" resultType="map">
+        select *from students
+        join class
+        on
+        students.classid=class.id
+    </select>
 </mapper>

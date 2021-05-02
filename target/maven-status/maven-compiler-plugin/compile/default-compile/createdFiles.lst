@@ -1,3 +1,3 @@
+com\bjpowernode\Dao\StudentsDao.class
 com\bjpowernode\domain\Students.class
 com\bjpowernode\util\MybatisUtil.class
-com\bjpowernode\Dao\a.class
