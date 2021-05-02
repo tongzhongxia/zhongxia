@@ -28,9 +28,10 @@
         select*from students where id=#{id}
     </select>
     <select id="selectDouble" resultType="map">
-        select *from students
-        join class
+        select s.name as sname,c.name as cname
+        from students s
+        join class c
         on
-        students.classid=class.id
+        s.classid=c.id
     </select>
 </mapper>
